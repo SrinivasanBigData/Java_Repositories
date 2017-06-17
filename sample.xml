@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property>
+		<name>reader</name>
+		<value></value>
+	</property>
+	<property>
+		<name>mapper</name>
+		<value>{
+		  "map_process": [
+		    {
+		      "step": 1,
+		      "classname": "",
+		      "threshold": {
+		        "precentage": 8,
+		        "record_limit": 250,
+		        "isabort": true
+		      },
+		      "lookups": [
+		        {
+		          "configuration": {
+		            "property": [
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              },
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              }
+		            ]
+		          }
+		        },
+		        {
+		          "configuration": {
+		            "property": [
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              },
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              }
+		            ]
+		          }
+		        }
+		      ]
+		    },
+		    {
+		      "step": 1,
+		      "classname": "",
+		      "threshold": {
+		        "precentage": 8,
+		        "record_limit": 250,
+		        "isabort": true
+		      },
+		      "lookups": [
+		        {
+		          "configuration": {
+		            "property": [
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              },
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              }
+		            ]
+		          }
+		        },
+		        {
+		          "configuration": {
+		            "property": [
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              },
+		              {
+		                "name": "ads",
+		                "value": "sdsa"
+		              }
+		            ]
+		          }
+		        }
+		      ]
+		    }
+		  ]
+		}</value>
+	</property>
+	<property>
+		<name>digester</name>
+		<value>{
+		  "configuration": {
+		    "property": [
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      },
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      }
+		    ]
+		  }
+		}</value>
+	</property>
+	<property>
+		<name>stagingwriter</name>
+		<value>{
+		  "configuration": {
+		    "property": [
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      },
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      }
+		    ]
+		  }
+		}</value>
+	</property>
+	<property>
+		<name>l1outputtable</name>
+		<value></value>
+	</property>
+	<property>
+		<name>l1databasename</name>
+		<value></value>
+	</property>
+	<property>
+		<name>errortracker</name>
+		<value>{
+		  "configuration": {
+		    "property": [
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      },
+		      {
+		        "name": "ads",
+		        "value": "sdsa"
+		      }
+		    ]
+		  }
+		}</value>
+	</property>
+	<property>
+		<name>reader</name>
+		<value></value>
+	</property>
+</configuration>
