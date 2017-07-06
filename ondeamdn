@@ -1,0 +1,94 @@
+package com.srini.ondeamdn;
+
+public class DataSample {
+
+	private String a;
+	
+	public DataSample() {
+	System.out.println("sdsa");
+	}
+
+	public String getA() {
+		
+		return a;
+	}
+
+	public void setA(String a) {
+		this.a = a;
+	}
+
+}
+
+package com.srini.ondeamdn;
+
+import javax.inject.Inject;
+
+import com.google.inject.Provider;
+
+public class Sample {
+
+	private Provider<DataSample> dataSample;
+
+	@Inject
+	public Sample(Provider<DataSample> dataSample) {
+		this.dataSample = dataSample;
+	}
+
+	public void sample() {
+		System.out.println(dataSample.get().getA());
+	}
+
+}
+
+package com.srini.ondeamdn;
+
+import javax.inject.Inject;
+
+import com.google.inject.Injector;
+import com.google.inject.Provider;
+
+public class Sample2 {
+
+	private Provider<DataSample> datasample;
+
+	@Inject
+	private Injector inject;
+
+	private Sample ssa;
+
+	@Inject
+	public Sample2(Provider<DataSample> datasample, Sample ssa) {
+		this.datasample = datasample;
+		this.ssa = ssa;
+	}
+
+	public void ss() {
+		DataSample dataSample2 = datasample.get();
+		dataSample2.setA("Hadoop");
+		inject.getMembersInjector(DataSample.class).injectMembers(dataSample2);
+		ssa.sample();
+	}
+
+}
+package com.srini.ondeamdn;
+
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Scopes;
+
+public class Test {
+	public static void main(String[] args) {
+		AbstractModule module = new AbstractModule() {
+
+			@Override
+			protected void configure() {
+				bind(DataSample.class).in(Scopes.SINGLETON);
+			}
+		};
+		Injector createInjector = Guice.createInjector(module);
+		createInjector.getInstance(Sample2.class).ss();
+
+	}
+
+}
