@@ -1,0 +1,80 @@
+package net.ahm.rest;
+
+import java.io.Serializable;
+
+import org.apache.commons.pool2.PooledObjectFactory;
+import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+
+import com.jcraft.jsch.Session;
+
+public class SessionPool implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public final GenericObjectPool<Session> getPool() {
+		PooledObjectFactory<Session> factory = new SessionObjectFactory();
+		GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+		poolConfig.setMaxIdle(5);
+		poolConfig.setMinIdle(1);
+		poolConfig.setMaxTotal(20);
+		poolConfig.setMinEvictableIdleTimeMillis(1800000);
+		poolConfig.setTimeBetweenEvictionRunsMillis(1800000 * 2L);
+		poolConfig.setTestOnBorrow(true);
+		poolConfig.setTestOnReturn(false);
+		poolConfig.setTestWhileIdle(false);
+		poolConfig.setMaxWaitMillis(5000);
+		poolConfig.setLifo(true);
+		poolConfig.setBlockWhenExhausted(true);
+		poolConfig.setNumTestsPerEvictionRun(3);
+		GenericObjectPool<Session> genericObjectPool = new GenericObjectPool<Session>(factory, poolConfig);
+		return genericObjectPool;
+	}
+}
+
+package net.ahm.rest;
+
+import org.apache.commons.pool2.BasePooledObjectFactory;
+import org.apache.commons.pool2.PooledObject;
+import org.apache.commons.pool2.impl.DefaultPooledObject;
+import org.springframework.retry.annotation.EnableRetry;
+
+import com.jcraft.jsch.Session;
+
+@EnableRetry
+public class SessionObjectFactory extends BasePooledObjectFactory<Session> {
+
+	@Override
+	public Session create() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PooledObject<Session> wrap(Session obj) {
+		return new DefaultPooledObject<Session>(obj);
+	}
+
+}
+
+package net.ahm.rest;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+public class TunnelDataSource extends BasicDataSource {
+
+	@Override
+	public Connection getConnection() throws SQLException {
+		// TODO Auto-generated method stub
+		return super.getConnection();
+	}
+}
+
+
+
